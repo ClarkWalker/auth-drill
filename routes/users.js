@@ -4,11 +4,15 @@ var db = require('../db/api');
 var bcrypt = require('bcrypt');
 
 router.post('/signin', function(req, res, next) {
-  db.signIn()
+  let isMatch = req.body.agentName;
+  console.log('isMatch', isMatch);
+  db.signIn(req.body.agentName)
   .then(function(agent) {
-    //Use bcrypt to log in
-    if (isMatch) {
+    console.log('agent', agent[0].agentName);
+    if (isMatch === agent[0].agentName) {
       //Route to /Assignment
+      console.log('oh shit!');
+      res.render('index');
     } else {
       res.render('index', {
         title: 'gClassified',

@@ -1,8 +1,13 @@
 var knex = require('./knex');
 
 module.exports = {
-  signIn: function() {
+  signIn: function(agentName) {
+    return knex('my_user')
+    .where('agentName', agentName);
   },
-  signUp: function() {
-  }
+
+  signUp: function(agentName) {
+    return knex('my_user')
+    .where('agentName', agentName);
+  },
 };
