@@ -1,8 +1,8 @@
-var knex = require('./knex')
+var knex = require('./knex');
 
 module.exports = {
   signIn: function() {
   },
   signUp: function() {
   }
-}
+};
